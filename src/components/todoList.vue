@@ -8,15 +8,19 @@
      <hr>
      <p>待办任务</p>
      <ul>
-     	<li v-for='(item,index) in list' v-if='item.checked==false'>
-     		<input type="checkbox" v-model="item.checked" @change="changeList()"/>{{item.title}}---<button @click='deleteList(index)'>删除</button>
+     	<li v-for='(item,index) in list' :key="index">
+         <div  v-if='item.checked==false'>
+            <input type="checkbox" v-model="item.checked" @change="changeList()"/>{{item.title}}---<button @click='deleteList(index)'>删除</button>
+         </div>
      	</li>
      </ul>
      <hr>
      <p>已完成</p>
      <ul>
-     	<li v-for='(item,index) in list' v-if='item.checked==true'>
-     		<input type="checkbox" v-model="item.checked" @change="changeList()"/>{{item.title}}---<button @click='deleteList(index)'>删除</button>
+     	<li v-for='(item,index) in list' :key="index">
+         <div  v-if='item.checked==true'>
+            <input type="checkbox" v-model="item.checked" @change="changeList()"/>{{item.title}}---<button @click='deleteList(index)'>删除</button>
+         </div>
      	</li>
      </ul>
  </div>
